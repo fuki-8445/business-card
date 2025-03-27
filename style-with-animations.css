@@ -1,0 +1,129 @@
+body {
+    margin: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.avatar {
+    width: 130px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px; /* Optional: adds rounded corners to the image */
+    transition: box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.4);
+    /* The transform is now handled by the pulse animation */
+}
+
+.card {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background: #B27092;
+    color: #512D38;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow to the entire card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: #C57A99; /* Slightly lighter shade when hovered */
+}
+
+/* Text shadow styles */
+h3 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+h3:hover {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+p, h4 {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+p:hover, h4:hover {
+    transform: translateX(5px);
+}
+
+.border-blue {
+    border: 1px dotted blue;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes colorCycle {
+    0% { border-color: #6DA34D; }
+    33% { border-color: #4D88A3; }
+    66% { border-color: #A34D6D; }
+    100% { border-color: #6DA34D; }
+}
+
+/* Apply animations to elements */
+.card {
+    animation: fadeIn 1.2s ease-out;
+    border: 5px solid #6DA34D;
+    animation: colorCycle 8s infinite;
+}
+
+.avatar {
+    animation: slideInFromLeft 1s ease-out;
+}
+
+h3 {
+    animation: slideInFromLeft 1s ease-out 0.3s backwards;
+}
+
+p {
+    animation: slideInFromLeft 1s ease-out 0.6s backwards;
+}
+
+h4 {
+    animation: slideInFromLeft 1s ease-out 0.9s backwards;
+}
+
+/* Apply continuous pulse animation to avatar on hover */
+.avatar:hover {
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/*
+Stretch goals:
+Find other ways you can personalize 
+the design of your business card, e.g.:
+- change the border(s)
+- add border radius
+- shuffle the layout
+- shadows        🤯
+- hover effects  🤯🤯
+- animations     🤯🤯🤯 ✓
+*/
